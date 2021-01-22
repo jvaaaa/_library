@@ -21,7 +21,8 @@ public class CuratorMenu {
             System.out.println("6.归还书籍");
             System.out.println("7.查询职工信息");
             System.out.println("8.增加职工");
-            System.out.println("10.退出");
+            System.out.println("9.删除职工");
+            System.out.println("11.退出");
             System.out.print("你要执行的命令为(输入命令前的编号):");
             try {
                 int select = scanner.nextInt();
@@ -35,7 +36,8 @@ public class CuratorMenu {
                     case 6:new RevertBookMenu();break;
                     case 7:new QueryCommonStaffMenu();break;
                     case 8:new AddCommonStaffMenu();break;
-                    case 10:close = true;break;
+                    case 9:new DeleteCommonStaffMenu();break;
+                    case 11:close = true;break;
                     default:System.out.println("非法输入");
                 }
             } catch (InputMismatchException e) {
