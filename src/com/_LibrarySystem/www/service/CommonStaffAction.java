@@ -1,6 +1,7 @@
 package com._LibrarySystem.www.service;
 
 import com._LibrarySystem.www.bean.CommonStaff;
+import com._LibrarySystem.www.bean.User;
 import com._LibrarySystem.www.dao.CommonStaffDao;
 
 import java.sql.SQLException;
@@ -40,5 +41,17 @@ public class CommonStaffAction {
         commonStaff.setGender(gender);
         commonStaff.setTelephone(telephone);
         return CommonStaffDao.add(commonStaff);
+    }
+
+    public static boolean delete(int id) throws SQLException{
+        CommonStaff commonStaff = new CommonStaff();
+        commonStaff.setId(id);
+        return CommonStaffDao.delete(commonStaff);
+    }
+
+    public static boolean contain(int id) throws SQLException {
+        User user = new User();
+        user.setId(id);
+        return CommonStaffDao.contain(user);
     }
 }

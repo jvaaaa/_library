@@ -41,4 +41,14 @@ public class UserDao {
         DBUtil.close(connection,preparedStatement);
         return success==1;
     }
+
+    public static boolean delete(User user) throws SQLException{
+        String SQL = "delete from library.user where id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1,user.getId());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }

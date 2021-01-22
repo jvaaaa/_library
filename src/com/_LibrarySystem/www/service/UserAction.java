@@ -34,4 +34,10 @@ public class UserAction {
         }
         return false;
     }
+
+    public static boolean delete(int id) throws SQLException{
+         User user = new User();
+         user.setId(id);
+         return UserDao.delete(user);
+    }
 }

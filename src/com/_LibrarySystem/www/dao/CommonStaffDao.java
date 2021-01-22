@@ -71,4 +71,14 @@ public class CommonStaffDao {
         DBUtil.close(connection,preparedStatement);
         return success==1;
     }
+
+    public static boolean delete(CommonStaff commonStaff) throws SQLException{
+        String SQL = "delete from library.commonstaff where id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1,commonStaff.getId());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }
