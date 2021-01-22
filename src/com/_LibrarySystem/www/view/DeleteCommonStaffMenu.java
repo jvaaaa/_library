@@ -1,7 +1,11 @@
 package com._LibrarySystem.www.view;
 
-public class DeleteCommonStaffMenu {
-    public DeleteCommonStaffMenu(){
+import java.util.Scanner;
 
+public class DeleteCommonStaffMenu {
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public DeleteCommonStaffMenu(){
+        
     }
 }
