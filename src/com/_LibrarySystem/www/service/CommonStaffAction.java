@@ -30,7 +30,7 @@ public class CommonStaffAction {
             System.out.println("查询成功,信息如下:");
             System.out.printf("id:%d\tname:%s\tgender:%s\ttelephone:%s\n",commonStaff.getId(),commonStaff.getName(),commonStaff.getGender(),commonStaff.getTelephone());
         }else {
-            System.out.println("查询失败，无该书籍信息");
+            System.out.println("查询失败，无该员工信息");
         }
     }
 
@@ -53,5 +53,11 @@ public class CommonStaffAction {
         User user = new User();
         user.setId(id);
         return CommonStaffDao.contain(user);
+    }
+
+    public static boolean modify(int id, String state, String statement) throws SQLException{
+        CommonStaff commonStaff  = new CommonStaff();
+        commonStaff.setId(id);
+        return CommonStaffDao.modify(commonStaff,state,statement);
     }
 }
