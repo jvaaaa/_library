@@ -13,6 +13,7 @@ public class AddCommonStaffMenu {
     public AddCommonStaffMenu() {
         int id;
         String gender,username;
+
         System.out.println("添加职工,请输入以下信息:");
         System.out.print("id(需要大于0):");
         while (true) {

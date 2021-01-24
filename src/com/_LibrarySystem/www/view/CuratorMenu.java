@@ -121,7 +121,11 @@ public class CuratorMenu {
                                 scanner.nextLine();
                                 switch (sel){
                                     case 1:
+                                        new AddCategoryMenu();
+                                        break;
                                     case 2:
+                                        new DeleteCategoryMenu();
+                                        break;
                                     case 3:
                                         close3 = true;
                                         break;
