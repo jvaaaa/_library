@@ -15,7 +15,8 @@ public class CuratorMenu {
             System.out.println("你可以执行的操作有:");
             System.out.println("1.书籍管理");
             System.out.println("2.员工管理");
-            System.out.println("3.退出");
+            System.out.println("3.书籍类型管理");
+            System.out.println("4.退出");
             System.out.print("你要执行的命令为(输入命令前的编号):");
             try {
                 int select = scanner.nextInt();
@@ -34,9 +35,9 @@ public class CuratorMenu {
                             System.out.println("7.返回上一步");
                             System.out.print("你要执行的命令为(输入命令前的编号):");
                             try {
-                                int select1 = scanner.nextInt();
+                                int sel = scanner.nextInt();
                                 scanner.nextLine();
-                                switch (select1) {
+                                switch (sel) {
                                     case 1:
                                         new QueryBookMenu();
                                         break;
@@ -79,9 +80,9 @@ public class CuratorMenu {
                             System.out.println("5.返回上一步");
                             System.out.print("你要执行的命令为(输入命令前的编号):");
                             try {
-                                int select2 = scanner.nextInt();
+                                int sel = scanner.nextInt();
                                 scanner.nextLine();
-                                switch (select2){
+                                switch (sel){
                                     case 1:
                                         new QueryCommonStaffMenu();
                                         break;
@@ -107,7 +108,34 @@ public class CuratorMenu {
                             }
                         }
                         break;
-                    case 3:close=true;break;
+                    case 3:
+                        boolean close3 = false;
+                        while (!close3){
+                            System.out.println("你可以执行的操作有:");
+                            System.out.println("1.添加书籍类型");
+                            System.out.println("2.删除书籍类型");
+                            System.out.println("3.返回上一步");
+                            System.out.print("你要执行的命令为(输入命令前的编号):");
+                            try {
+                                int sel = scanner.nextInt();
+                                scanner.nextLine();
+                                switch (sel){
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        close3 = true;
+                                        break;
+                                    default:
+                                        System.out.println("非法输入");
+                                        break;
+                                }
+                            }catch (InputMismatchException e){
+                                scanner.nextLine();
+                                System.out.println("非法输入");
+                            }
+                        }
+                        break;
+                    case 4:close=true;break;
                     default:System.out.println("非法输入");break;
                 }
             } catch (InputMismatchException e) {
