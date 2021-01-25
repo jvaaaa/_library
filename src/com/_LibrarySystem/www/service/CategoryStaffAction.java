@@ -53,4 +53,10 @@ public class CategoryStaffAction {
         categoryStaff.setTelephone(telephone);
         return CategoryStaffDao.add(categoryStaff);
     }
+
+    public static boolean delete(int id) throws SQLException{
+        CategoryStaff categoryStaff = new CategoryStaff();
+        categoryStaff.setId(id);
+        return CategoryStaffDao.delete(categoryStaff);
+    }
 }

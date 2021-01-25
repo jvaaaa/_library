@@ -64,4 +64,14 @@ public class CategoryStaffDao {
         DBUtil.close(connection,preparedStatement);
         return success==1;
     }
+
+    public static boolean delete(CategoryStaff categoryStaff) throws SQLException{
+        String SQL = "delete from library.categorystaff where id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1,categoryStaff.getId());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }
