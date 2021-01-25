@@ -157,6 +157,9 @@ public class CuratorMenu {
                                     case 1:
                                         new QueryCategoryStaffMenu();
                                         break;
+                                    case 2:
+                                        new AddCategoryStaffMenu();
+                                        break;
                                     case 5:
                                         close4 = true;
                                         break;

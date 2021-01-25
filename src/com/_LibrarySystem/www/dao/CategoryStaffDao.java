@@ -49,4 +49,19 @@ public class CategoryStaffDao {
         DBUtil.close(connection,preparedStatement,resultSet);
         return categoryStaff;
     }
+
+    public static boolean add(CategoryStaff categoryStaff) throws SQLException{
+        String SQL = "insert into library.categorystaff (id, name, gender, contact, categoryID, telephone) VALUE (?,?,?,?,?,?)";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1,categoryStaff.getId());
+        preparedStatement.setString(2,categoryStaff.getName());
+        preparedStatement.setString(3,categoryStaff.getGender());
+        preparedStatement.setString(4,categoryStaff.getContact());
+        preparedStatement.setInt(5,categoryStaff.getCategoryID());
+        preparedStatement.setString(6,categoryStaff.getTelephone());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }

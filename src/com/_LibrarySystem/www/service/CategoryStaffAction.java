@@ -42,4 +42,15 @@ public class CategoryStaffAction {
             System.out.printf("id:%d\tname:%s\tgender:%s\tcontact:%s\tcategoryID:%d\ttelephone:%s\n",categoryStaff.getId(),categoryStaff.getName(),categoryStaff.getGender(),categoryStaff.getContact(),categoryStaff.getCategoryID(),categoryStaff.getTelephone());
         }
     }
+
+    public static boolean add(int id, String name, String gender, String contact, int categoryID, String telephone) throws SQLException{
+        CategoryStaff categoryStaff = new CategoryStaff();
+        categoryStaff.setId(id);
+        categoryStaff.setName(name);
+        categoryStaff.setGender(gender);
+        categoryStaff.setContact(contact);
+        categoryStaff.setCategoryID(categoryID);
+        categoryStaff.setTelephone(telephone);
+        return CategoryStaffDao.add(categoryStaff);
+    }
 }
