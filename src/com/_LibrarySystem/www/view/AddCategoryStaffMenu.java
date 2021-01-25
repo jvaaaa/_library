@@ -1,0 +1,37 @@
+package com._LibrarySystem.www.view;
+
+import com._LibrarySystem.www.service.CategoryStaffAction;
+
+import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class AddCategoryStaffMenu {
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public AddCategoryStaffMenu(){
+        int id;
+
+        System.out.println("添加书目管理员,请输入以下信息:");
+        System.out.print("id(需要大于0):");
+        while (true) {
+            try {
+                id = scanner.nextInt();
+                scanner.nextLine();
+                if (CategoryStaffAction.contain(id)){
+                    System.out.print("已经存在该书目管理员id,请重新输入:");
+                }else if(id<=0){
+                    System.out.print("id需要大于0,请重新输入:");
+                }else{
+                    break;
+                }
+            } catch (InputMismatchException e){
+                scanner.nextLine();
+                System.out.print("非法输入,请重新输入:");
+            } catch (SQLException e){
+                System.out.println("数据库错误:");
+                e.printStackTrace();
+            }
+        }
+    }
+}

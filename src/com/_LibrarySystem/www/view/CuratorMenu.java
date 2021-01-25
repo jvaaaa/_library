@@ -14,9 +14,10 @@ public class CuratorMenu {
         while (!close) {
             System.out.println("你可以执行的操作有:");
             System.out.println("1.书籍管理");
-            System.out.println("2.员工管理");
+            System.out.println("2.普通员工管理");
             System.out.println("3.书籍类型管理");
-            System.out.println("4.退出");
+            System.out.println("4.书籍管理员管理");
+            System.out.println("5.退出");
             System.out.print("你要执行的命令为(输入命令前的编号):");
             try {
                 int select = scanner.nextInt();
@@ -73,10 +74,10 @@ public class CuratorMenu {
                         boolean close2 = false;
                         while (!close2) {
                             System.out.println("你可以执行的操作有:");
-                            System.out.println("1.查询职工信息");
-                            System.out.println("2.增加职工");
-                            System.out.println("3.删除职工");
-                            System.out.println("4.修改职工信息");
+                            System.out.println("1.查询普通员工信息");
+                            System.out.println("2.增加普通员工");
+                            System.out.println("3.删除普通员工");
+                            System.out.println("4.修改普通员工信息");
                             System.out.println("5.返回上一步");
                             System.out.print("你要执行的命令为(输入命令前的编号):");
                             try {
@@ -139,7 +140,37 @@ public class CuratorMenu {
                             }
                         }
                         break;
-                    case 4:close=true;break;
+                    case 4:
+                        boolean close4 = false;
+                        while (!close4){
+                            System.out.println("你可以执行的操作有:");
+                            System.out.println("1.查询书目管理员信息");
+                            System.out.println("2.增加书目管理员");
+                            System.out.println("3.删除书目管理员");
+                            System.out.println("4.修改书目管理员信息");
+                            System.out.println("5.返回上一步");
+                            System.out.print("你要执行的命令为(输入命令前的编号):");
+                            try {
+                                int sel = scanner.nextInt();
+                                scanner.nextLine();
+                                switch (sel){
+                                    case 1:
+                                        new QueryCategoryStaffMenu();
+                                        break;
+                                    case 5:
+                                        close4 = true;
+                                        break;
+                                    default:
+                                        System.out.println("非法输入");
+                                        break;
+                                }
+                            }catch (InputMismatchException e){
+                                scanner.nextLine();
+                                System.out.println("非法输入");
+                            }
+                        }
+                        break;
+                    case 5:close=true;break;
                     default:System.out.println("非法输入");break;
                 }
             } catch (InputMismatchException e) {

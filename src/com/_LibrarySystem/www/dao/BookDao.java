@@ -14,13 +14,12 @@ public class BookDao {
 
     public static List<Book> queryAll() throws SQLException {
         List<Book> bookList = new ArrayList<>();
-        Book book;
         String SQL = "select id,ISBN,name,category,number,price,author from library.book";
         Connection connection = new DBUtil().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
-            book = new Book();
+            Book book = new Book();
             book.setId(resultSet.getInt("id"));
             book.setISBN(resultSet.getString("ISBN"));
             book.setName(resultSet.getString("name"));
