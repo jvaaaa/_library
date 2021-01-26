@@ -59,4 +59,10 @@ public class CategoryStaffAction {
         categoryStaff.setId(id);
         return CategoryStaffDao.delete(categoryStaff);
     }
+
+    public static boolean modify(int id, String state, String statement) throws SQLException{
+        CategoryStaff categoryStaff = new CategoryStaff();
+        categoryStaff.setId(id);
+        return CategoryStaffDao.modify(categoryStaff,state,statement);
+    }
 }

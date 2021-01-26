@@ -74,4 +74,15 @@ public class CategoryStaffDao {
         DBUtil.close(connection,preparedStatement);
         return success==1;
     }
+
+    public static boolean modify(CategoryStaff categoryStaff, String state, String statement) throws SQLException{
+        String SQL = "update library.categorystaff set "+state+" = ? where id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1,statement);
+        preparedStatement.setInt(2,categoryStaff.getId());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }

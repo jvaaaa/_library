@@ -1,7 +1,6 @@
 package com._LibrarySystem.www.view;
 
 import com._LibrarySystem.www.service.CommonStaffAction;
-import com._LibrarySystem.www.service.UserAction;
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
@@ -12,7 +11,7 @@ public class ModifyCommonStaffMenu {
 
     public ModifyCommonStaffMenu() {
         int id;
-        String username,gender;
+        String gender;
         System.out.print("请输入你需要修改的员工id:");
             try {
                 while (true) {
