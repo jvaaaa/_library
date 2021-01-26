@@ -95,7 +95,7 @@ public class ModifyCategoryStaffMenu {
                 }
             }
         }catch (SQLException e){
-            System.out.println("数据库错误");
+            System.out.println("数据库错误:");
             e.printStackTrace();
         }
     }
