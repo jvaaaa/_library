@@ -45,7 +45,7 @@ public class AddCommonStaffMenu {
                     break;
                 }
             }catch (SQLException e){
-                System.out.println("数据层错误");
+                System.out.println("数据库错误");
                 e.printStackTrace();
             }
         }
@@ -53,13 +53,13 @@ public class AddCommonStaffMenu {
         String password = scanner.nextLine();
         System.out.print("name:");
         String name = scanner.nextLine();
+        System.out.print("gender:");
         while (true) {
-            System.out.print("gender:");
             gender = scanner.nextLine();
             if (gender.equals("男") || gender.equals("女")) {
                 break;
             } else {
-                System.out.println("性别必须为男或者女");
+                System.out.print("性别必须为男或者女:请重新输入");
             }
         }
         System.out.print("telephone:");

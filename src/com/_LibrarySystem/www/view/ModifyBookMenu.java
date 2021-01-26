@@ -11,16 +11,17 @@ public class ModifyBookMenu {
 
     public ModifyBookMenu() {
         int id;
+
         System.out.print("请输入你需要修改的书籍id:");
         try {
             while (true) {
                 try {
                     id = scanner.nextInt();
                     scanner.nextLine();
-                    if (!BookAction.contain(id)) {
-                        System.out.print("无该书籍,请重新输入:");
-                    } else {
+                    if (BookAction.contain(id)) {
                         break;
+                    } else {
+                        System.out.print("无该书籍,请重新输入:");
                     }
                 } catch (InputMismatchException e) {
                     scanner.nextLine();

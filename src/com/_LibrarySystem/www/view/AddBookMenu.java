@@ -76,7 +76,6 @@ public class AddBookMenu {
         try {
             if (BookAction.add(id, ISBN, name, category, number, price, author)) {
                 System.out.println("添加成功");
-                BookAction.query(id);
             } else {
                 System.out.println("添加失败");
             }

@@ -17,7 +17,7 @@ public class DeleteBookMenu {
                 try {
                     int id = scanner.nextInt();
                     scanner.nextLine();
-                    if (BookAction.delete(id) && UserAction.delete(id)) {
+                    if (BookAction.delete(id)) {
                         System.out.println("删除成功");
                     } else {
                         System.out.println("删除失败");

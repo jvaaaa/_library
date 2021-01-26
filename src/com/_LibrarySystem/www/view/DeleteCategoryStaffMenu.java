@@ -1,6 +1,7 @@
 package com._LibrarySystem.www.view;
 
 import com._LibrarySystem.www.service.CategoryStaffAction;
+import com._LibrarySystem.www.service.UserAction;
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
@@ -17,7 +18,7 @@ public class DeleteCategoryStaffMenu {
                     int id = scanner.nextInt();
                     scanner.nextLine();
                     if (CategoryStaffAction.contain(id)) {
-                        if (CategoryStaffAction.delete(id)) {
+                        if (CategoryStaffAction.delete(id) && UserAction.delete(id)) {
                             System.out.println("删除成功");
                         } else {
                             System.out.println("删除失败");

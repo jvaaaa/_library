@@ -163,6 +163,9 @@ public class CuratorMenu {
                                     case 3:
                                         new DeleteCategoryStaffMenu();
                                         break;
+                                    case 4:
+                                        new ModifyCategoryStaffMenu();
+                                        break;
                                     case 5:
                                         close4 = true;
                                         break;
