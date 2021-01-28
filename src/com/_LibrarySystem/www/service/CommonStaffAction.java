@@ -60,4 +60,12 @@ public class CommonStaffAction {
         commonStaff.setId(id);
         return CommonStaffDao.modify(commonStaff,state,statement);
     }
+
+    public static boolean promote(int id, String contact, int categoryID) throws SQLException {
+        CommonStaff commonStaff = CommonStaffDao.query(id);
+        String name = commonStaff.getName();
+        String gender = commonStaff.getGender();
+        String telephone = commonStaff.getTelephone();
+        return (CommonStaffDao.delete(commonStaff) && CategoryStaffAction.add(id,name,gender,contact,categoryID,telephone));
+    }
 }

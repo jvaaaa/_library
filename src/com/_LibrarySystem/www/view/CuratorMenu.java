@@ -78,7 +78,8 @@ public class CuratorMenu {
                             System.out.println("2.增加普通员工");
                             System.out.println("3.删除普通员工");
                             System.out.println("4.修改普通员工信息");
-                            System.out.println("5.返回上一步");
+                            System.out.println("5.升职普通员工");
+                            System.out.println("6.返回上一步");
                             System.out.print("你要执行的命令为(输入命令前的编号):");
                             try {
                                 int sel = scanner.nextInt();
@@ -97,6 +98,9 @@ public class CuratorMenu {
                                         new ModifyCommonStaffMenu();
                                         break;
                                     case 5:
+                                        new PromoteCommonStaffMenu();
+                                        break;
+                                    case 6:
                                         close2=true;
                                         break;
                                     default:
