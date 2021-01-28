@@ -1,6 +1,8 @@
 package com._LibrarySystem.www.service;
 
 import com._LibrarySystem.www.bean.Book;
+import com._LibrarySystem.www.bean.Category;
+import com._LibrarySystem.www.bean.CategoryStaff;
 import com._LibrarySystem.www.dao.BookDao;
 
 import java.sql.SQLException;
@@ -99,5 +101,16 @@ public class BookAction {
         Book book = new Book();
         book.setId(id);
         return BookDao.revert(book);
+    }
+
+    public static void query(CategoryStaff categoryStaff, int id) throws SQLException{
+        Category category = CategoryAction.query(categoryStaff.getCategoryID());
+        if (id == 0){
+            List<Book> bookList = BookDao.queryAll(category);
+            show(bookList);
+        }else {
+            Book book = BookDao.query(category,id);
+            show(book);
+        }
     }
 }

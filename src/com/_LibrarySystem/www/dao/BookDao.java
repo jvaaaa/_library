@@ -1,6 +1,7 @@
 package com._LibrarySystem.www.dao;
 
 import com._LibrarySystem.www.bean.Book;
+import com._LibrarySystem.www.bean.Category;
 import com._LibrarySystem.www.util.DBUtil;
 
 import java.sql.Connection;
@@ -134,5 +135,48 @@ public class BookDao {
         int success = preparedStatement.executeUpdate();
         DBUtil.close(connection,preparedStatement);
         return success==1;
+    }
+
+    public static List<Book> queryAll(Category category) throws SQLException{
+        List<Book> bookList = new ArrayList<>();
+        String SQL = "select id,ISBN,name,category,number,price,author from library.book where category = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1,category.getName());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Book book = new Book();
+            book.setId(resultSet.getInt("id"));
+            book.setISBN(resultSet.getString("ISBN"));
+            book.setName(resultSet.getString("name"));
+            book.setCategory(resultSet.getString("category"));
+            book.setNumber(resultSet.getInt("number"));
+            book.setPrice(resultSet.getDouble("price"));
+            book.setAuthor(resultSet.getString("author"));
+            bookList.add(book);
+        }
+        DBUtil.close(connection,preparedStatement,resultSet);
+        return bookList;
+    }
+
+    public static Book query(Category category, int id) throws SQLException{
+        Book book = new Book();
+        String SQL = "select id,ISBN,name,category,number,price,author from library.book where category = ? and id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1,category.getName());
+        preparedStatement.setInt(2,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            book.setId(resultSet.getInt("id"));
+            book.setISBN(resultSet.getString("ISBN"));
+            book.setName(resultSet.getString("name"));
+            book.setCategory(resultSet.getString("category"));
+            book.setNumber(resultSet.getInt("number"));
+            book.setPrice(resultSet.getDouble("price"));
+            book.setAuthor(resultSet.getString("author"));
+        }
+        DBUtil.close(connection, preparedStatement, resultSet);
+        return book;
     }
 }

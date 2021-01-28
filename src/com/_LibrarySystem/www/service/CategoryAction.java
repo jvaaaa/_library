@@ -30,4 +30,14 @@ public class CategoryAction {
         category.setId(id);
         return CategoryDao.delete(category);
     }
+
+    public static Category query(int categoryID) throws SQLException{
+        List<Category> categoryList = CategoryDao.queryAll();
+        for (Category category : categoryList){
+            if (category.getId() == categoryID){
+                return category;
+            }
+        }
+        return new Category();
+    }
 }
