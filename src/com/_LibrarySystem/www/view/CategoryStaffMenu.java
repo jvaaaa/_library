@@ -28,6 +28,8 @@ public class CategoryStaffMenu {
                         new QueryBookMenu(categoryStaff);
                         break;
                     case 2:
+                        new AddBookMenu(categoryStaff);
+                        break;
                     case 3:
                     case 4:
                     case 5:close=true;break;
