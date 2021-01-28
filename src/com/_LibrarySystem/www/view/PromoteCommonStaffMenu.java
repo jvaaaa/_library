@@ -29,7 +29,6 @@ public class PromoteCommonStaffMenu {
                     System.out.print("非法输入,请重新输入:");
                 }
             }
-            CommonStaffAction.query(id);
             System.out.println("升职需要补充以下信息:");
             System.out.print("contact:");
             String contact = scanner.nextLine();

@@ -65,4 +65,12 @@ public class CategoryStaffAction {
         categoryStaff.setId(id);
         return CategoryStaffDao.modify(categoryStaff,state,statement);
     }
+
+    public static boolean demote(int id) throws SQLException{
+        CategoryStaff categoryStaff = CategoryStaffDao.query(id);
+        String name = categoryStaff.getName();
+        String gender = categoryStaff.getGender();
+        String telephone = categoryStaff.getTelephone();
+        return (CommonStaffAction.add(id,name,gender,telephone) && CategoryStaffDao.delete(categoryStaff));
+    }
 }

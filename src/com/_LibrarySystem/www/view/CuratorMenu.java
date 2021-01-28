@@ -152,7 +152,8 @@ public class CuratorMenu {
                             System.out.println("2.增加书目管理员");
                             System.out.println("3.删除书目管理员");
                             System.out.println("4.修改书目管理员信息");
-                            System.out.println("5.返回上一步");
+                            System.out.println("5.降职书目管理员");
+                            System.out.println("6.返回上一步");
                             System.out.print("你要执行的命令为(输入命令前的编号):");
                             try {
                                 int sel = scanner.nextInt();
@@ -171,6 +172,9 @@ public class CuratorMenu {
                                         new ModifyCategoryStaffMenu();
                                         break;
                                     case 5:
+                                        new DemoteCategoryStaffMenu();
+                                        break;
+                                    case 6:
                                         close4 = true;
                                         break;
                                     default:
