@@ -25,6 +25,8 @@ public class CategoryStaffMenu {
                 scanner.nextLine();
                 switch (select) {
                     case 1:
+                        new QueryBookMenu();
+                        break;
                     case 2:
                     case 3:
                     case 4:
