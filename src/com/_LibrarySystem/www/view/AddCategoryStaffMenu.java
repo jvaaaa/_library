@@ -66,11 +66,11 @@ public class AddCategoryStaffMenu {
                     if (CategoryAction.contain(categoryID)) {
                         break;
                     } else {
-                        System.out.print("没有该category,请重新输入");
+                        System.out.print("没有该category,请重新输入:");
                     }
                 } catch (InputMismatchException e) {
                     scanner.nextLine();
-                    System.out.println("非法输入");
+                    System.out.print("非法输入,请重新输入:");
                 }
             }
             System.out.print("telephone:");

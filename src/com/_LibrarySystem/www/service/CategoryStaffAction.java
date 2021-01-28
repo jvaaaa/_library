@@ -1,6 +1,7 @@
 package com._LibrarySystem.www.service;
 
 import com._LibrarySystem.www.bean.CategoryStaff;
+import com._LibrarySystem.www.bean.User;
 import com._LibrarySystem.www.dao.CategoryStaffDao;
 
 import java.sql.SQLException;
@@ -8,13 +9,9 @@ import java.util.List;
 
 public class CategoryStaffAction {
     public static boolean contain(int id) throws SQLException {
-        List<CategoryStaff> categoryStaffList = CategoryStaffDao.queryAll();
-        for (CategoryStaff categoryStaff : categoryStaffList){
-            if (categoryStaff.getId() == id){
-                return true;
-            }
-        }
-        return false;
+        User user = new User();
+        user.setId(id);
+        return CategoryStaffDao.contain(user);
     }
 
     public static void query(int id) throws SQLException{

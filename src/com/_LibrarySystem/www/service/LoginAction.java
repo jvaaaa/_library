@@ -1,10 +1,12 @@
 package com._LibrarySystem.www.service;
 
 import com._LibrarySystem.www.bean.User;
+import com._LibrarySystem.www.dao.CategoryStaffDao;
 import com._LibrarySystem.www.dao.CommonStaffDao;
 import com._LibrarySystem.www.dao.CuratorDao;
 import com._LibrarySystem.www.dao.UserDao;
 import com._LibrarySystem.www.util.BeanUtil;
+import com._LibrarySystem.www.view.CategoryStaffMenu;
 import com._LibrarySystem.www.view.CommonStaffMenu;
 import com._LibrarySystem.www.view.CuratorMenu;
 
@@ -26,8 +28,10 @@ public class LoginAction {
     public static void Login(User user) throws SQLException,ClassNotFoundException{
         if (CommonStaffDao.contain(user)){
             new CommonStaffMenu(BeanUtil.toCommonStaff(user));
-        }else if (CuratorDao.contain(user)){
+        }else if (CuratorDao.contain(user)) {
             new CuratorMenu(BeanUtil.toCurator(user));
+        }else if (CategoryStaffDao.contain(user)){
+            new CategoryStaffMenu(BeanUtil.toCategoryStaff(user));
         }else {
             throw new ClassNotFoundException("未定义的类型");
         }

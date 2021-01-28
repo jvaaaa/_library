@@ -1,6 +1,7 @@
 package com._LibrarySystem.www.dao;
 
 import com._LibrarySystem.www.bean.CategoryStaff;
+import com._LibrarySystem.www.bean.User;
 import com._LibrarySystem.www.util.DBUtil;
 
 import java.sql.Connection;
@@ -84,5 +85,15 @@ public class CategoryStaffDao {
         int success = preparedStatement.executeUpdate();
         DBUtil.close(connection,preparedStatement);
         return success==1;
+    }
+
+    public static boolean contain(User user) throws SQLException{
+        List<CategoryStaff> categoryStaffList = queryAll();
+        for (CategoryStaff categoryStaff : categoryStaffList){
+            if (categoryStaff.getId() == user.getId()){
+                return true;
+            }
+        }
+        return false;
     }
 }

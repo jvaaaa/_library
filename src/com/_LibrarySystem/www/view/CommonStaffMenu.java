@@ -10,6 +10,7 @@ public class CommonStaffMenu {
 
     public CommonStaffMenu(CommonStaff commonStaff) {
         boolean close = false;
+
         System.out.println("欢迎你，管理员:" + commonStaff.getName());
         while (!close) {
             System.out.println("你可以执行的操作有:");
