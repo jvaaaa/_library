@@ -113,4 +113,20 @@ public class BookAction {
             show(book);
         }
     }
+
+    public static boolean contain(CategoryStaff categoryStaff, int id)throws SQLException{
+        Category category = CategoryAction.query(categoryStaff.getCategoryID());
+        Book book = BookDao.query(category,id);
+        return book.getId() != 0;
+    }
+
+    public static boolean delete(CategoryStaff categoryStaff, int id) throws SQLException{
+        if (contain(categoryStaff,id)) {
+            Book book = new Book();
+            book.setId(id);
+            return BookDao.delete(book);
+        } else {
+            return false;
+        }
+    }
 }
