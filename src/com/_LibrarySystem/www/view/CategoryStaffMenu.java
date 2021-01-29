@@ -34,6 +34,8 @@ public class CategoryStaffMenu {
                         new DeleteBookMenu(categoryStaff);
                         break;
                     case 4:
+                        new ModifyBookMenu(categoryStaff);
+                        break;
                     case 5:close=true;break;
                     default:System.out.println("非法输入");break;
                 }
