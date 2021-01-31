@@ -51,4 +51,10 @@ public class LibraryAction {
         library.setCuratorID(curatorID);
         return LibraryDao.add(library);
     }
+
+    public static boolean delete(int id) throws SQLException{
+        Library library = new Library();
+        library.setId(id);
+        return LibraryDao.delete(library);
+    }
 }

@@ -30,6 +30,8 @@ public class AdministratorMenu {
                         new AddLibraryMenu();
                         break;
                     case 3:
+                        new DeleteLibraryMenu();
+                        break;
                     case 4:
                     case 5:
                         close = true;
