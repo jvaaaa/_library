@@ -32,4 +32,23 @@ public class LibraryAction {
             System.out.printf("id:%d\tname:%s\taddress:%s\tCuratorID:%d\n", library.getId(), library.getName(), library.getAddress(), library.getCuratorID());
         }
     }
+
+    public static boolean contain(int id) throws SQLException{
+        List<Library> libraryList = LibraryDao.queryAll();
+        for (Library library : libraryList){
+            if (library.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean add(int id, String name, String address, int curatorID) throws SQLException{
+        Library library = new Library();
+        library.setId(id);
+        library.setName(name);
+        library.setAddress(address);
+        library.setCuratorID(curatorID);
+        return LibraryDao.add(library);
+    }
 }

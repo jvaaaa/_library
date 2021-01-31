@@ -46,4 +46,17 @@ public class LibraryDao {
         DBUtil.close(connection,preparedStatement,resultSet);
         return library;
     }
+
+    public static boolean add(Library library) throws SQLException{
+        String SQL = "insert into library.library (id, name, address, CuratorID) values (?,?,?,?);";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1,library.getId());
+        preparedStatement.setString(2,library.getName());
+        preparedStatement.setString(3,library.getAddress());
+        preparedStatement.setInt(4,library.getCuratorID());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }

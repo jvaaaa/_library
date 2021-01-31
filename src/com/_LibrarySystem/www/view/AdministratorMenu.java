@@ -27,6 +27,8 @@ public class AdministratorMenu {
                         new QueryLibraryMenu();
                         break;
                     case 2:
+                        new AddLibraryMenu();
+                        break;
                     case 3:
                     case 4:
                     case 5:
