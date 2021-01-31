@@ -4,7 +4,7 @@ public class Library {
     private int id;
     private String name;
     private String address;
-    private int administratorID;
+    private int CuratorID;
 
     public int getId() {
         return id;
@@ -30,11 +30,11 @@ public class Library {
         this.address = address;
     }
 
-    public int getAdministratorID() {
-        return administratorID;
+    public int getCuratorID() {
+        return CuratorID;
     }
 
-    public void setAdministratorID(int administratorID) {
-        this.administratorID = administratorID;
+    public void setCuratorID(int CuratorID) {
+        this.CuratorID = CuratorID;
     }
 }

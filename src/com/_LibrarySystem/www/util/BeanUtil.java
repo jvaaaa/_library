@@ -1,6 +1,7 @@
 package com._LibrarySystem.www.util;
 
 import com._LibrarySystem.www.bean.*;
+import com._LibrarySystem.www.dao.AdministratorDao;
 import com._LibrarySystem.www.dao.CategoryStaffDao;
 import com._LibrarySystem.www.dao.CommonStaffDao;
 import com._LibrarySystem.www.dao.CuratorDao;
@@ -37,5 +38,15 @@ public class BeanUtil {
             }
         }
         return new CategoryStaff();
+    }
+
+    public static Administrator toAdministrator(User user) throws SQLException{
+        List<Administrator> administratorList = AdministratorDao.queryAll();
+        for (Administrator administrator : administratorList){
+            if (administrator.getId() == user.getId()){
+                return administrator;
+            }
+        }
+        return new Administrator();
     }
 }
