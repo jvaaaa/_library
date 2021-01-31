@@ -57,4 +57,16 @@ public class LibraryAction {
         library.setId(id);
         return LibraryDao.delete(library);
     }
+
+    public static boolean modify(int id,String state,String statement) throws SQLException{
+        Library library = new Library();
+        library.setId(id);
+        return LibraryDao.modify(library,state,statement);
+    }
+
+    public static boolean modify(int id,String state,int statement) throws SQLException{
+        Library library = new Library();
+        library.setId(id);
+        return LibraryDao.modify(library,state,statement);
+    }
 }

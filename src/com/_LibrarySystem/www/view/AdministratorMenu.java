@@ -33,6 +33,8 @@ public class AdministratorMenu {
                         new DeleteLibraryMenu();
                         break;
                     case 4:
+                        new ModifyLibraryMenu();
+                        break;
                     case 5:
                         close = true;
                         break;

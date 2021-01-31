@@ -69,4 +69,26 @@ public class LibraryDao {
         DBUtil.close(connection,preparedStatement);
         return success==1;
     }
+
+    public static boolean modify(Library library, String state, String statement) throws SQLException{
+        String SQL = "update library.library set "+state+" = ? where id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1,statement);
+        preparedStatement.setInt(2,library.getId());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
+
+    public static boolean modify(Library library,String state,int statement)throws SQLException{
+        String SQL = "update library.library set "+state+" = ? where id = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1,statement);
+        preparedStatement.setInt(2,library.getId());
+        int success = preparedStatement.executeUpdate();
+        DBUtil.close(connection,preparedStatement);
+        return success==1;
+    }
 }
