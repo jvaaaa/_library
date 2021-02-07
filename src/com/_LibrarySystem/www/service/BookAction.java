@@ -129,4 +129,15 @@ public class BookAction {
             return false;
         }
     }
+
+    public static void fuzzyQuery(String statement) throws SQLException{
+        List<Book> bookList = BookDao.fuzzyQuery(statement);
+        show(bookList);
+    }
+
+    public static void fuzzyQuery(CategoryStaff categoryStaff, String statement) throws SQLException{
+        Category category = CategoryAction.query(categoryStaff.getCategoryID());
+        List<Book> bookList = BookDao.fuzzyQuery(category,statement);
+        show(bookList);
+    }
 }

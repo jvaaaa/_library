@@ -179,4 +179,54 @@ public class BookDao {
         DBUtil.close(connection, preparedStatement, resultSet);
         return book;
     }
+
+    public static List<Book> fuzzyQuery(String statement) throws SQLException{
+        List<Book> bookList = new ArrayList<>();
+        String SQL = "select id,ISBN,name,category,number,price,author from library.book where ISBN like ? or name like ? or category like ? or author like ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1,"%"+statement+"%");
+        preparedStatement.setString(2,"%"+statement+"%");
+        preparedStatement.setString(3,"%"+statement+"%");
+        preparedStatement.setString(4,"%"+statement+"%");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Book book = new Book();
+            book.setId(resultSet.getInt("id"));
+            book.setISBN(resultSet.getString("ISBN"));
+            book.setName(resultSet.getString("name"));
+            book.setCategory(resultSet.getString("category"));
+            book.setNumber(resultSet.getInt("number"));
+            book.setPrice(resultSet.getDouble("price"));
+            book.setAuthor(resultSet.getString("author"));
+            bookList.add(book);
+        }
+        DBUtil.close(connection, preparedStatement, resultSet);
+        return bookList;
+    }
+
+    public static List<Book> fuzzyQuery(Category category, String statement) throws SQLException {
+        List<Book> bookList = new ArrayList<>();
+        String SQL = "select id,ISBN,name,category,number,price,author from library.book where (ISBN like ? or name like ? or author like ?) and category = ?";
+        Connection connection = new DBUtil().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1,"%"+statement+"%");
+        preparedStatement.setString(2,"%"+statement+"%");
+        preparedStatement.setString(3,"%"+statement+"%");
+        preparedStatement.setString(4,category.getName());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Book book = new Book();
+            book.setId(resultSet.getInt("id"));
+            book.setISBN(resultSet.getString("ISBN"));
+            book.setName(resultSet.getString("name"));
+            book.setCategory(resultSet.getString("category"));
+            book.setNumber(resultSet.getInt("number"));
+            book.setPrice(resultSet.getDouble("price"));
+            book.setAuthor(resultSet.getString("author"));
+            bookList.add(book);
+        }
+        DBUtil.close(connection, preparedStatement, resultSet);
+        return bookList;
+    }
 }
